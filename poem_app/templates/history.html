@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History</title>
+    <link rel="stylesheet" href="../static/history.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('dashboard') }}"><span class="actual-text">&nbsp;Dashboard&nbsp;</span>
+              <span class="hover-text" aria-hidden="true">&nbsp;Dashboard&nbsp;</span></a></li>
+              <li><a href="{{ url_for('index') }}"><span class="actual-text">&nbsp;Poem&nbsp;</span>
+                 <span class="hover-text" aria-hidden="true">&nbsp;Poem&nbsp;</span></a></li>
+            <li><a href="{{ url_for('logout') }}"><span class="actual-text">&nbsp;Logout&nbsp;</span>
+              <span class="hover-text" aria-hidden="true">&nbsp;Logout&nbsp;</span></a></li>
+        </ul>
+    </nav>
+    {% block content %}
+    <h1>My Poem History</h1>
+    {% if poem_emotions %}
+      {% for poem, emotions in poem_emotions %}
+      <div class="list-group-item">
+        <ul>
+            <p><strong>{{ poem.timestamp.strftime('%Y-%m-%d %H:%M') }}</strong></p>
+            <div class="poem">
+          {% for stanza, emotion in emotions %}
+          <!-- <li>{{ stanza }} - {{ emotion }}</li> -->
+          <li class="stanza">{{stanza}}</li>
+          <li class="emotion">{{emotion}}</li>          
+          {% endfor %}
+        </div>
+        </ul>
+</div>
+      {% endfor %}
+    {% else %}
+      <p>You haven't written any poems yet!</p>
+    {% endif %}
+  {% endblock %}
+
+</body>
+</html>

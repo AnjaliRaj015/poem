@@ -1,0 +1,156 @@
+/* Set the background color */
+@import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
+
+body {
+  -webkit-animation: color-change-3x 4s linear infinite alternate both;
+  animation: color-change-3x 4s linear infinite alternate both;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+
+}
+
+@-webkit-keyframes color-change-3x {
+  0% {
+    background: #062f32;
+  }
+
+  50% {
+    background: #11484c;
+  }
+
+  100% {
+    background: #050216;
+  }
+}
+
+@keyframes color-change-3x {
+  0% {
+    background: #013033;
+  }
+
+  50% {
+    background: #11484c;
+  }
+
+  100% {
+    background: #050216;
+  }
+}
+
+.login {
+  padding-top: 100px;
+  padding-left: 650px;
+  font-family: 'Cabin', sans-serif;
+}
+
+/* Center the login form */
+form {
+  font-family: 'Cabin', sans-serif;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-bottom: 4em;
+  background-color: #171717;
+  border-radius: 25px;
+  transition: .4s ease-in-out;
+}
+
+.form:hover {
+  transform: scale(1.05);
+  border: 1px solid black;
+}
+
+#heading {
+  text-align: center;
+  margin: 2em;
+  color: rgb(255, 255, 255);
+  font-size: 2em;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  border-radius: 25px;
+  padding: 0.6em;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: #171717;
+  box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+}
+
+.input-icon {
+  height: 1.3em;
+  width: 1.3em;
+  fill: white;
+}
+
+.form-picfile {
+  font-size: 25px;
+}
+
+/* Style the input fields */
+input[type=text],
+input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  font-size: 20px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: white;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+/* Style the submit button */
+input[type=submit] {
+  cursor: pointer;
+  font-family: 'Cabin', sans-serif;
+  font-size: 18px;
+  padding: 1em;
+  padding-left: 1.1em;
+  padding-right: 1.1em;
+  border-radius: 50px;
+  margin-right: 0.5em;
+  border: none;
+  outline: none;
+  transition: .4s ease-in-out;
+  background-color: #252525;
+  color: white;
+}
+
+input[type=submit]:hover {
+  background-color: black;
+  color: white;
+}
+
+/* Style the link to the registration page */
+a {
+  color: #ffffff;
+  text-decoration: none;
+  padding-left: 120px;
+  font-size: 20px;
+}
+
+a:hover {
+  color: rgb(88, 66, 212);
+}
+
+/* Style the header */
+h1 {
+  text-align: center;
+  margin-top: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 50px;
+  color: white;
+}

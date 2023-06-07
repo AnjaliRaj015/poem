@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../static/dash.css">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}"><span class="actual-text">&nbsp;Poem&nbsp;</span>
+                    <span class="hover-text" aria-hidden="true">&nbsp;Poem&nbsp;</span></a></li>
+            <li><a href="{{ url_for('history') }}"><span class="actual-text">&nbsp;History&nbsp;</span>
+                    <span class="hover-text" aria-hidden="true">&nbsp;History&nbsp;</span></a></li>
+            <li><a href="{{ url_for('logout') }}"><span class="actual-text">&nbsp;Logout&nbsp;</span>
+                    <span class="hover-text" aria-hidden="true">&nbsp;Logout&nbsp;</span></a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="profile">
+            <h1>Hello {{current_user.name}}, you are back!.</h1>
+            <img src="{{current_user.pic}}" alt="" srcset="">
+            <br>
+            <div class="info">
+                <p> <span style="padding-right: 100px;">NAME</span>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: aqua;">{{current_user.name}}</span></p>
+            </div>
+            <div class="info">
+                <p><span style="padding-right: 100px;">USERNAME</span>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <span style="color: aqua;">{{current_user.username}}</span></p>
+            </div>
+            <div class="direct">
+                <button class="button"><a href="{{url_for('logout')}}">Press here to logout</a></button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

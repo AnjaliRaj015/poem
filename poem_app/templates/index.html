@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Predict Emotions in a Poem</title>
+   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+   <nav>
+      <ul>
+         <li><a href="{{ url_for('dashboard') }}"><span class="actual-text">&nbsp;Dashboard&nbsp;</span>
+               <span class="hover-text" aria-hidden="true">&nbsp;Dashboard&nbsp;</span></a></li>
+         <li><a href="{{ url_for('history') }}"><span class="actual-text">&nbsp;History&nbsp;</span>
+               <span class="hover-text" aria-hidden="true">&nbsp;History&nbsp;</span></a></li>
+         <li><a href="{{ url_for('logout') }}"><span class="actual-text">&nbsp;Logout&nbsp;</span>
+               <span class="hover-text" aria-hidden="true">&nbsp;Logout&nbsp;</span></a></li>
+      </ul>
+   </nav>
+   <section class="poem">
+      <h1>Predict Emotions in a Poem</h1>
+      <form method="POST" enctype="multipart/form-data">
+         <label class="heading" for="input_type">Select Input Type</label><br>
+         <label>
+         <input type="radio" id="text_input" name="input_type" value="text_input" checked>
+         <span> Text Input</span></label>
+         <label>
+         <input type="radio" id="file_input" name="input_type" value="file_input">
+          <span> File Upload</span> </label><br><br>
+
+         <div id="file_input_container" style="display:none;">
+            <label class="heading" for="file_input">Select a File</label><br>
+            <input type="file" id="file_input" name="file_input">
+            <br><br>
+         </div>
+         <br>
+         <label class="heading" for="poem_text">Enter a Poem:</label><br>
+         <textarea name="poem_text" rows="10" cols="50"></textarea><br>
+         <div class="submit">
+         <input type="submit" value="Predict Emotions">
+      </div>
+      </form>
+      {% if predicted_emotions %}
+      <h2>Predicted Emotions:</h2>
+      <ul class="predicted-emotions">
+         {% for stanza, emotion in predicted_emotions %}
+         <li class="stanza">{{stanza}}</li>
+         <li class="emotion">{{emotion}}</li>
+         {% endfor %}
+      </ul>
+      {% endif %}
+   </section>
+</body>
+<script>
+   var inputTypeRadios = document.querySelectorAll('input[name="input_type"]');
+   var fileInputContainer = document.getElementById('file_input_container');
+
+   function toggleFileInputContainer() {
+      if (this.value === 'file_input') {
+         fileInputContainer.style.display = 'block';
+      } else {
+         fileInputContainer.style.display = 'none';
+      }
+   }
+
+   for (var i = 0; i < inputTypeRadios.length; i++) {
+      inputTypeRadios[i].addEventListener('change', toggleFileInputContainer);
+   }
+   let selectedLink = document.querySelector(".selectedLink");
+
+
+</script>
+
+</html>

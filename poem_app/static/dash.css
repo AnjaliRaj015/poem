@@ -1,0 +1,226 @@
+/* Styles for Dashboard page */
+@import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
+
+body {
+  margin: 0;
+  -webkit-animation: color-change-3x 4s linear infinite alternate both;
+  animation: color-change-3x 4s linear infinite alternate both;
+}
+
+@-webkit-keyframes color-change-3x {
+  0% {
+    background: #062f32;
+  }
+
+  50% {
+    background: #11484c;
+  }
+
+  100% {
+    background: #050216;
+  }
+}
+
+@keyframes color-change-3x {
+  0% {
+    background: #013033;
+  }
+
+  50% {
+    background: #11484c;
+  }
+
+  100% {
+    background: #050216;
+  }
+}
+
+:root {
+  --border-right: 6px;
+  --animation-color-Dashboard: #098ebe;
+  --animation-color-History: #098ebe;
+  --animation-color-Logout: #098ebe;
+  --fs-size: 18px;
+}
+
+nav {
+  margin-top: 0;
+  background: rgba(1, 55, 64, 0.588);
+  padding: 20px;
+  box-shadow: 0px 2px 4px rgba(5, 82, 71, 0.395);
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 22rem;
+}
+
+nav ul li {
+  margin: 0;
+  height: auto;
+  background: transparent;
+  padding: 0;
+  border: none;
+  letter-spacing: 3px;
+  text-decoration: none;
+  font-size: var(--fs-size);
+  font-family: 'Cabin', sans-serif;
+  font-weight: bold;
+  position: relative;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-stroke-color);
+  cursor: pointer;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+ul li .hover-text {
+  position: absolute;
+  box-sizing: border-box;
+  content: attr(data-text);
+  width: 0%;
+  inset: 0;
+  overflow: hidden;
+  transition: all .5s ease-in-out;
+}
+
+ul li:nth-child(1) .hover-text {
+  color: var(--animation-color-Dashboard);
+  border-right: var(--border-right) solid var(--animation-color-Dashboard);
+  -webkit-text-stroke: 1px var(--animation-color-html);
+}
+
+ul li:nth-child(2) .hover-text {
+  color: var(--animation-color-History);
+  border-right: var(--border-right) solid var(--animation-color-History);
+  -webkit-text-stroke: 1px var(--animation-color);
+}
+
+ul li:nth-child(3) .hover-text {
+  color: var(--animation-color-Logout);
+  border-right: var(--border-right) solid var(--animation-color-Logout);
+  -webkit-text-stroke: 1px var(--animation-color);
+}
+
+ul li:hover .hover-text {
+  width: 100%;
+}
+
+ul li:nth-child(1):hover .hover-text {
+  filter: drop-shadow(0 0 25px var(--animation-color-Dashboard))
+}
+
+ul li:nth-child(2):hover .hover-text {
+  filter: drop-shadow(0 0 25px var(--animation-color-History))
+}
+
+ul li:nth-child(3):hover .hover-text {
+  filter: drop-shadow(0 0 25px var(--animation-color-Logout))
+}
+
+.container {
+  padding-top: 50px;
+  padding-left: 700px;
+}
+h1{
+  color: white;
+}
+.profile {
+  font-family: 'Cabin', sans-serif;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 2em;
+  background-color: #29444072;
+  border-radius: 25px;
+  transition: .4s ease-in-out;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: #171717;
+  box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+  font-size: 20px;
+}
+
+p {
+  padding: 20px;
+}
+
+.button {
+  padding: 1em 2em;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #2cadaf;
+  transition: all 1000ms;
+  font-size: 15px;
+  position: relative;
+  overflow: hidden;
+  outline: 2px solid #2cadaf;
+}
+
+.direct {
+  text-align: center;
+}
+
+.direct .button {
+  display: inline-block;
+  margin: 10px;
+}
+
+button:hover {
+  color: #ffffff;
+  transform: scale(1.1);
+  outline: 2px solid #2cadaf;
+  box-shadow: 4px 5px 17px -4px #2cadaf;
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  left: -50px;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-color: #2cadaf;
+  transform: skewX(45deg);
+  z-index: -1;
+  transition: width 1000ms;
+}
+
+button:hover::before {
+  width: 250%;
+}
+
+.button a {
+  text-decoration: none;
+  color: black;
+}
+
+.button a:hover {
+  color: white;
+}
